@@ -1,0 +1,46 @@
+{
+  "name": "project-server",
+  "version": "1.0.0",
+  "description": "project backend code",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "sequelize",
+    "mysql",
+    "rest",
+    "api",
+    "express"
+  ],
+  "author": "Tolu Ajia",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.719.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.7-alpha.4",
+    "express-jwt": "^6.0.0",
+    "forever-monitor": "^3.0.1",
+    "fs": "0.0.1-security",
+    "googleapis": "^39.2.0",
+    "http": "0.0.1-security",
+    "http-server": "^0.12.3",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.19",
+    "multer": "^1.4.2",
+    "mysql2": "^2.1.0",
+    "nodemailer": "^6.4.10",
+    "path": "^0.12.7",
+    "pug": "^3.0.0",
+    "sequelize": "^6.3.3",
+    "validator": "^13.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
