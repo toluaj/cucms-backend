@@ -14,6 +14,7 @@ programRouter = require('./program/programRouter');
 abstractRouter = require('./uploads/uploadAbsRouter');
 partiesRouter = require('./parties/partiesRouter');
 requestRouter = require('./requests/requestRouter');
+reviewRouter = require('./reviews/reviewRouter');
 
 api.use('/users', userRouter);
 api.use('/conference', conferenceRouter);
@@ -22,5 +23,6 @@ api.use('/program', programRouter);
 api.use('/abstract', abstractRouter);
 api.use('/register', partiesRouter);
 api.use('/request', requestRouter);
+api.use('/review', reviewRouter);
 
 module.exports = api;

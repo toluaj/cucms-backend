@@ -7,6 +7,8 @@ exports.decodeToken = (req, res, next) => {
     checkToken(req, res, next);
 }
 
+const Acts = db.program.hasMany(db.activity, {onDelete: "cascade",as:"acts"})
+
 exports.createActivity = async (req, res) => {
 
     // const {
@@ -54,7 +56,6 @@ exports.createActivity = async (req, res) => {
     //     program: 'Misimia', 
     //     conference_id: '2'  
     //   }                     
-    const Acts = db.program.hasMany(db.activity, {onDelete: "cascade",as:"acts"})
 
     await db.program.create(req.body, {
         include: [{
@@ -90,8 +91,11 @@ exports.createActivity = async (req, res) => {
 }
 
 exports.getProgram = (req, res) => {
-    const {id} = req.body;
-    db.program.findByPk(id, {
+    // const {conference_id} = req.body;
+    console.log(req.body);
+    console.log(req.params);
+    db.program.findAll({
+        where: {conference_id: req.params.id},
         include: [
             {
                 model: db.activity,
@@ -106,6 +110,7 @@ exports.getProgram = (req, res) => {
         }
 
         res.status(200).send({program, status: "success"})
+            console.log(req.body);
     })
 }
 

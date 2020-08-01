@@ -1,11 +1,4 @@
 const db = require("../db");
-const { abstract } = require("../db");
-    expressjwt = require("express-jwt");
-    checkToken  = expressjwt({secret : "tolukey", algorithms: ['HS256']});
-
-exports.decodeToken = (req, res, next) => {
-    checkToken(req, res, next);
-}
 
 exports.submitAbstract = async (req, res) => {
 
@@ -103,7 +96,7 @@ exports.submitAbstract = async (req, res) => {
         res.status(500).send(err.message);
     })
 
-}
+};
 
 const dir = '/uploads/'
 
@@ -132,7 +125,7 @@ exports.getOneAbstract = async (req, res) => {
     .catch (err => {
         console.log(err.message);
     })
-}
+};
 
 exports.deleteAbstract = (req, res, next) => {
     db.abstract.destroy({
@@ -144,3 +137,20 @@ exports.deleteAbstract = (req, res, next) => {
     })
     .catch(err => res.status(500).send(err));
 };
+
+exports.getAbstracts = (req, res) => {
+
+    db.abstract.findAndCountAll({
+        where: {conference_id: req.body.conference_id},
+    })
+        .then(data => {
+            if(!data) {res.status(403).send({message: "could not find abstracts", status: "failed"})}
+
+            res.status(200).send({data, status: "success"})
+        })
+}
+
+// exports.assignAbstract = (req, res) => {
+//
+//
+// }

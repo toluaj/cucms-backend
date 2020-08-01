@@ -19,4 +19,7 @@ router.route('/chair/:id')
 router.route('/chair/reply')
 .get(controller.findtoken, controller.replyRequest2);
 
+router.route('/requests')
+.get(auth1.decodeToken, controller.getAllRequests);
+
 module.exports = router;

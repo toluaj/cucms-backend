@@ -384,3 +384,15 @@ exports.getUserRequest = (req, res) => {
     })
 
 }
+
+exports.getAllRequests = (req, res) => {
+
+    db.request.findAll({
+        
+    }).then(data => {
+        if(!data) {res.status(403).send({message: "could not get requests", status: "failed"})}
+
+        res.status(200).send({data, status: "success"});
+    })
+
+}
