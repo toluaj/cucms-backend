@@ -341,7 +341,7 @@ exports.getOneUser = (req, res) => {
 }
 
 exports.editUser = (req, res) => {
-    db.user.update(req.body,{where: {user_id : req.user.id}
+    db.user.update(req.body,{where: {id : req.user.id}
 
     })
      .then((rowsUpdated) => {
@@ -351,7 +351,8 @@ exports.editUser = (req, res) => {
           
          res.send({status: "success"})
 
-     }, (err) => { return next(err);
-
-})
+}).catch(err => {
+    console.log(err.message);
+    res.status(500).send({message: err.message})
+    })
 }

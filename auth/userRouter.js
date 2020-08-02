@@ -28,6 +28,6 @@ const  express = 	require("express");
     .get(controller.decodeToken, controller.signedInUser)
 
     router.route('/edit')
-    .post(controller.decodeToken, controller.editUser);
+    .put(controller.decodeToken, controller.editUser);
 
 module.exports = router;

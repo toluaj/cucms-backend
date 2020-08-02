@@ -20,13 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c80cf3c2-7c8c-431c-b621-619e8d050e66" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assignments/assignments.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reviews/reviewRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/activity/activityController.js" beforeDir="false" afterPath="$PROJECT_DIR$/activity/activityController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/activity/activityRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/activity/activityRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assignments/assController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assignments/assRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requests/requestController.js" beforeDir="false" afterPath="$PROJECT_DIR$/requests/requestController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requests/requestRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/requests/requestRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/assignments.js" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/assignments.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/auth/userController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/userRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/auth/userRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parties/partiesController.js" beforeDir="false" afterPath="$PROJECT_DIR$/parties/partiesController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parties/partiesRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/parties/partiesRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uploads/uploadAbsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/uploads/uploadAbsController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uploads/uploadAbsRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/uploads/uploadAbsRouter.js" afterDir="false" />
     </list>
@@ -34,6 +37,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -53,6 +63,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -62,7 +73,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1596222216596</updated>
-      <workItem from="1596222218168" duration="9637000" />
+      <workItem from="1596222218168" duration="25829000" />
+      <workItem from="1596385339312" duration="1026000" />
     </task>
     <servers />
   </component>
@@ -79,5 +91,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1596320328233">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1596320328233" />
   </component>
 </project>

@@ -36,7 +36,7 @@ db.review = require("./reviews/review")(sequelize, Sequelize);
 db.parties = require("./parties/parties")(sequelize, Sequelize);
 db.paper = require("./paper/paper")(sequelize, Sequelize);
 db.request = require("./requests/request")(sequelize, Sequelize);
-
+db.assignments = require("./assignments/assignments")(sequelize, Sequelize);
 
 // db.conference.hasMany(db.user, {onDelete: "cascade"})
 // db.user.belongsToMany(db.conference, { through: "user_conference", onDelete: "cascade"})

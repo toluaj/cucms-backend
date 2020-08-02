@@ -15,14 +15,16 @@ abstractRouter = require('./uploads/uploadAbsRouter');
 partiesRouter = require('./parties/partiesRouter');
 requestRouter = require('./requests/requestRouter');
 reviewRouter = require('./reviews/reviewRouter');
+assignRouter = require('./assignments/assRouter')
 
 api.use('/users', userRouter);
 api.use('/conference', conferenceRouter);
 api.use('/activity', activityRouter);
 api.use('/program', programRouter);
 api.use('/abstract', abstractRouter);
-api.use('/register', partiesRouter);
+api.use('/parties', partiesRouter);
 api.use('/request', requestRouter);
 api.use('/review', reviewRouter);
+api.use('/assign', assignRouter)
 
 module.exports = api;

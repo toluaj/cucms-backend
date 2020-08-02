@@ -33,3 +33,19 @@ exports.registerConference = (req, res) => {
     })
 
 }
+
+exports.getReviewers = (req, res) => {
+
+    db.parties.findAll({
+        where: {conference_id: req.params.id, role: "reviewer"}
+    }).then(data => {
+        if(!data) {return res.status(403).send({message: "could not find any reviewers", status: "failed"})}
+
+        res.status(200).send({data, status: "success"});
+
+    }).catch(err => {
+        console.log(err);
+        res.status(500).send({message: err.message})
+    })
+
+}

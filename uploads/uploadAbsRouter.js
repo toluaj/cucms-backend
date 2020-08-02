@@ -5,12 +5,15 @@ const  express = 	require("express");
 
 router.route('/upload')
     .post(auth1.decodeToken, controller.submitAbstract)
-    .get(auth1.decodeToken, controller.getOneAbstract)
+    .get(auth1.decodeToken, controller.getUserAbstract)
 
 router.route('/:id')
     .delete(auth1.decodeToken, controller.deleteAbstract);
 
-router.route('/view')
-    .get(auth1.decodeToken, controller.getAbstracts);
+router.route('/view/:id')
+    .get(controller.getAbstracts);
+
+router.route('/:id')
+    .get(controller.getOneAbstract)
 
 module.exports = router;

@@ -100,9 +100,9 @@ exports.submitAbstract = async (req, res) => {
 
 const dir = '/uploads/'
 
-exports.getOneAbstract = async (req, res) => {
+exports.getUserAbstract = async (req, res) => {
 
-    db.abstract.findOne({
+    db.abstract.findAll({
 
         where: {
             user_id: req.user.id
@@ -141,7 +141,7 @@ exports.deleteAbstract = (req, res, next) => {
 exports.getAbstracts = (req, res) => {
 
     db.abstract.findAndCountAll({
-        where: {conference_id: req.body.conference_id},
+        where: {conference_id: req.params.id},
     })
         .then(data => {
             if(!data) {res.status(403).send({message: "could not find abstracts", status: "failed"})}
@@ -150,7 +150,17 @@ exports.getAbstracts = (req, res) => {
         })
 }
 
-// exports.assignAbstract = (req, res) => {
-//
-//
-// }
+exports.getOneAbstract = (req, res) => {
+
+    db.abstract.findOne({
+        where: {id: req.params.id}
+    }).then(data => {
+        if(!data) {res.status(403).send({message: "could not get abstract", status: "failed"})}
+
+        res.status(200).send({data, status: "success"})
+
+    }).catch(err => {
+        console.log(err.message)
+        res.status(500).send({message: err.message})
+    })
+}
