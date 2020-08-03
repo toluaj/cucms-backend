@@ -13,11 +13,11 @@ router.route('/')
 router.route('/reply')
 .post(auth1.decodeToken, controller.replyRequest);
 
-router.route('/chair/:id')
-.post(auth1.decodeToken, controller.makeChairRequest);
+// router.route('/chair/:id')
+// .post(auth1.decodeToken, controller.makeChairRequest);
 
 router.route('/chair/reply')
-.get(controller.findtoken, controller.replyRequest2);
+.post(auth1.decodeToken, controller.replyRequest2);
 
 router.route('/requests')
 .get(auth1.decodeToken, controller.getAllRequests);

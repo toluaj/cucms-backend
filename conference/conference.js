@@ -42,11 +42,11 @@ module.exports = (sequelize, DataTypes) => {
             required: true,
             allowNull: false
         },
-        sessions: {
-            type: DataTypes.INTEGER,
-            required: true,
-            allowNull: false
-        },
+        // sessions: {
+        //     type: DataTypes.INTEGER,
+        //     required: true,
+        //     allowNull: true
+        // },
         created_at: DataTypes.DATE,
 
       updated_at: DataTypes.DATE,

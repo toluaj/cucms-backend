@@ -33,7 +33,7 @@ exports.createConference = async (req, res) => {
         start_date,
         end_date,
         chair ,
-        sessions
+        // sessions
     } = req.body;
 
 
@@ -63,7 +63,8 @@ exports.createConference = async (req, res) => {
         description,
         start_date,
         end_date,
-        chair, sessions
+        chair,
+        // sessions
 
     }).then((data) => {
 
@@ -155,10 +156,6 @@ exports.deleteConference = async (req, res) => {
         res.send({message: "could not delete conference"})
     })
 }
-
-// exports.editConference = (req, res) => {
-//     const {}
-// }
 
 exports.paperCall = async (req, res) => {
 

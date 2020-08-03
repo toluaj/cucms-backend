@@ -107,7 +107,7 @@ exports.getUserAbstract = async (req, res) => {
         where: {
             user_id: req.user.id
         },
-        attributes: ["id", "path"]
+        // attributes: ["id", "path"]
 
     }).then((data) => {
         if(!data) {

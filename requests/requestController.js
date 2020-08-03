@@ -1,11 +1,6 @@
 var db = require('../db');
     nodemailer = require('nodemailer');
-    // expressjwt = require("express-jwt");
-    // checkToken  = expressjwt({secret : "tolukey", algorithms: ['HS256']});
 const crypto = require('crypto');
-const { resolve } = require('path');
-const { reject } = require('lodash');
-const { docs } = require('googleapis/build/src/apis/docs');
 const Op = db.Sequelize.Op;
 
 var rand,link, mailOptions;
@@ -64,21 +59,9 @@ exports.findtoken = (req, res, next) => {
     .catch(err => res.status(422).send({message : err, status : "find token failed"}));
 }
 
-
-// const up = db.parties.create({
-
-//     user_id: user_id,
-//     conference_id: conference_id,
-//     role: "reviewer",
-//     affiliation: "Covenant University"
-
-
-// })
-
 exports.replyRequest = async (req, res, next) => {
       
     const {reply, conference_id} = req.body;
-    context1 = {role: "reviewer"};
     const user_id = req.user.id;
     console.log(req.user);
 
@@ -135,63 +118,59 @@ exports.replyRequest = async (req, res, next) => {
 }
 
 exports.replyRequest2 = (req, res, next) => {
-      
-    const {reply} = req.body;
+
+    const {reply, conference_id} = req.body;
+    const user_id = req.user.id;
     console.log(req.user);
-    console.log(mailOption2);
+
     if(reply === "accepted") {
         db.user.update({
-            activeToken : null,
-            activeExpires : null,
-            role: "program chair"
-  
+            role: "chair"
         },{
 
-            where: {activeToken : req.body.token,
-                activeExpires : {
-                    [Op.gt]: Date.now()
-                }},
+            where: {id: user_id},
             returning : true,
             plain : true
-            
+
         })
-        .then(data => {
-            if(!data){ res.send({message : "request accepted", status : "failed"})};
-          
-              db.request.update({
-                  reply: reply
-              }, {
-                  where: {email: mailOption2.to}
-              })
-            res.send({message : "request accepted", status : "success"});
-        })
-        .catch(err => res.status(422).send({message : err, status : "reply request failed"}));  
+            .then(data => {
+                if(!data){ res.send({message : "user not found", status : "failed"})};
+
+                db.request.update({
+                    reply: reply
+                }, {
+                    where: {user_id: user_id, conference_id: conference_id}
+                })
+
+                db.parties.create({
+
+                    user_id: user_id,
+                    conference_id: conference_id,
+                    role: "chair",
+                    affiliation: "Covenant University"
+                })
+
+
+                console.log(user_id);
+                res.send({message : "request accepted", status : "success"});
+            })
+            .catch(err => res.status(422).send({message : err, status : "failed"}));
     }
 
     else if(reply === "rejected") {
-        db.user.update({
-            activeToken : null,
-            activeExpires : null,
-  
-        },{
+        const user_id = req.user.id;
 
-            where: {activeToken : req.body.token,
-                activeExpires : {
-                    [Op.gt]: Date.now()
-                }},
-            returning : true,
-            plain : true
-            
+        db.request.update({
+            reply: reply
+        }, {
+            where: {user_id: user_id, conference_id: conference_id}
         })
-        .then(data => {
-            if(!data){ res.send({message : "request accepted", status : "failed"})};
-          
-              db.request.update({
-                  reply: reply
-              })
-            res.send({message : "request accepted", status : "success"});
-        })
-        .catch(err => res.status(422).send({message : err, status : "failed"}));  
+            .then(data => {
+                if(!data){ res.send({message : "request accepted", status : "failed"})};
+
+                res.status(200).send({message : "request rejected", status : "success"});
+            })
+            .catch(err => res.status(422).send({message : err, status : "failed"}));
     }
 
 }
