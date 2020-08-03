@@ -23,6 +23,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parties/parties.js" beforeDir="false" afterPath="$PROJECT_DIR$/parties/parties.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parties/partiesController.js" beforeDir="false" afterPath="$PROJECT_DIR$/parties/partiesController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parties/partiesRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/parties/partiesRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requests/requestController.js" beforeDir="false" afterPath="$PROJECT_DIR$/requests/requestController.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +67,7 @@
       <option name="presentableId" value="Default" />
       <updated>1596222216596</updated>
       <workItem from="1596222218168" duration="25829000" />
-      <workItem from="1596385339312" duration="8173000" />
+      <workItem from="1596385339312" duration="10838000" />
     </task>
     <servers />
   </component>

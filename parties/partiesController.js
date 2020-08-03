@@ -54,5 +54,20 @@ exports.getConferences = (req, res) => {
 
     db.parties.findAll({
         where: {user_id: req.user.id, role: "chair"}
+    }).then(data => {
+        if(!data) {res.status(403).send({message: "could not find any user"})}
+
+        res.status(200).send({data, status: "success"})
+
+        // db.conference.findAll({
+        //     where: {conference_id: data.conference_id}
+        // }).then(data => {
+        //     if(!data) {res.status(403).send({message: "could not find any user"})}
+        //
+        //     res.status(200).send({data, status: "success"})
+        // })
+    }).catch(err => {
+        console.log(err.message);
+        res.status(500).send(err.message);
     })
 }

@@ -49,6 +49,12 @@ module.exports = (sequelize, DataTypes) => {
             required: true
         },
 
+        conference_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            required: true
+        },
+
         affiliation: {
             type: DataTypes.STRING,
             allowNull: false,
