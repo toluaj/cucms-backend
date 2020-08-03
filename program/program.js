@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: DataTypes.UUIDV4,
             allowNull: false
         },
-        name: {
+        program: {
             type: DataTypes.STRING,
             defaultValue: 'Program',
             allowNull: false,

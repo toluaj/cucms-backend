@@ -8,17 +8,17 @@ exports.decodeToken = (req, res, next) => {
 
 exports.createProgram = (req, res) => {
 
-    const {name} = req.body;
+    const {program} = req.body;
 
     db.program.create({
-         name
+         program
     }).then((data) => {
         if(!data) {
             res.send({status: "failed", message: "could not create program"})
         }
 
         else {
-            res.status(200).send({message: "program created sis", status: "thuxtheth", data})
+            res.status(200).send({message: "program created sis", status: "success", data})
         }
     })
     .catch(err => {
