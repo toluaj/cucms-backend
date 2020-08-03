@@ -49,3 +49,10 @@ exports.getReviewers = (req, res) => {
     })
 
 }
+
+exports.getConferences = (req, res) => {
+
+    db.parties.findAll({
+        where: {user_id: req.user.id, role: "chair"}
+    })
+}

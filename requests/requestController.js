@@ -61,7 +61,7 @@ exports.findtoken = (req, res, next) => {
 
 exports.replyRequest = async (req, res, next) => {
       
-    const {reply, conference_id} = req.body;
+    const {reply, conference_id, firstName, lastName, email} = req.body;
     const user_id = req.user.id;
     console.log(req.user);
 
@@ -89,7 +89,10 @@ exports.replyRequest = async (req, res, next) => {
                 user_id: user_id,
                 conference_id: conference_id,
                 role: "reviewer",
-                affiliation: "Covenant University"
+                affiliation: "Covenant University",
+                  firstName: firstName,
+                  lastName: lastName,
+                  email: email
             })            
 
               
@@ -119,7 +122,7 @@ exports.replyRequest = async (req, res, next) => {
 
 exports.replyRequest2 = (req, res, next) => {
 
-    const {reply, conference_id} = req.body;
+    const {reply, conference_id, firstName, lastName, email} = req.body;
     const user_id = req.user.id;
     console.log(req.user);
 
@@ -147,7 +150,10 @@ exports.replyRequest2 = (req, res, next) => {
                     user_id: user_id,
                     conference_id: conference_id,
                     role: "chair",
-                    affiliation: "Covenant University"
+                    affiliation: "Covenant University",
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email
                 })
 
 

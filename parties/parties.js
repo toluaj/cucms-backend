@@ -23,6 +23,24 @@ module.exports = (sequelize, DataTypes) => {
             required: true
         },
 
+        firstName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            required: true
+        },
+
+        lastName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            required: true
+        },
+
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            required: true
+        },
+
         role: {
             type: DataTypes.ENUM,
             values: ["author", "participant", "reviewer", "chair"],

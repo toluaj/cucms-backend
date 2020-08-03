@@ -21,12 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c80cf3c2-7c8c-431c-b621-619e8d050e66" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/conference.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference/conference.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/conferenceController.js" beforeDir="false" afterPath="$PROJECT_DIR$/conference/conferenceController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parties/parties.js" beforeDir="false" afterPath="$PROJECT_DIR$/parties/parties.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parties/partiesController.js" beforeDir="false" afterPath="$PROJECT_DIR$/parties/partiesController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requests/requestController.js" beforeDir="false" afterPath="$PROJECT_DIR$/requests/requestController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requests/requestRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/requests/requestRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/uploadAbsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/uploads/uploadAbsController.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1596222216596</updated>
       <workItem from="1596222218168" duration="25829000" />
-      <workItem from="1596385339312" duration="6581000" />
+      <workItem from="1596385339312" duration="8173000" />
     </task>
     <servers />
   </component>
