@@ -19,7 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c80cf3c2-7c8c-431c-b621-619e8d050e66" name="Default Changelist" comment="" />
+    <list default="true" id="c80cf3c2-7c8c-431c-b621-619e8d050e66" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parties/partiesController.js" beforeDir="false" afterPath="$PROJECT_DIR$/parties/partiesController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reviews/reviewController.js" beforeDir="false" afterPath="$PROJECT_DIR$/reviews/reviewController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reviews/reviewRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/reviews/reviewRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/uploadAbsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/uploads/uploadAbsController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/uploadAbsRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/uploads/uploadAbsRouter.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +68,7 @@
       <option name="presentableId" value="Default" />
       <updated>1596222216596</updated>
       <workItem from="1596222218168" duration="25829000" />
-      <workItem from="1596385339312" duration="11537000" />
+      <workItem from="1596385339312" duration="31261000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,16 @@
 const db = require("../db");
+const nodemailer = require('nodemailer');
+
+
+var link, mailOptions;
+link = "http://localhost:3000/login/";
+let transporter = nodemailer.createTransport({
+    service: "Gmail",
+    auth: {
+        user: 'tolulope.ajia@stu.cu.edu.ng',
+        pass: 'computer123'
+    }
+});
 
 exports.submitAbstract = async (req, res) => {
 
@@ -162,5 +174,80 @@ exports.getOneAbstract = (req, res) => {
     }).catch(err => {
         console.log(err.message)
         res.status(500).send({message: err.message})
+    })
+}
+
+exports.updateStatus = (req, res) => {
+    const {status, id, email, name} = req.body;
+    db.abstract.update({
+        status: status
+    },{
+
+        where: {id: id},
+        returning : true,
+        plain : true
+
+    }).then(data => {
+        if(!data) {res.status(403).send({message: "could not perform", status: "failed"})}
+
+        else {
+
+            if(status === "accepted") {
+                // db.parties.update({
+                //     role: "author"
+                // },{
+                //
+                //     where: {id: req.user.id},
+                //     returning : true,
+                //     plain : true
+                //
+                // })
+
+                console.log(link);
+                mailOptions={
+                    to: email,
+                    subject: "ABSTRACT UPDATE" +name+"",
+                    html: "Hello <br> We are pleased to inform you that your abstract has been accepted " +
+                        "to be presented in "+name+ " here in Covenant University<br> <a href=" +link+">Click here to login</a>"
+                }
+                console.log(mailOptions);
+                transporter.sendMail(mailOptions, function(error, response){
+                    if(error){
+                        console.log(error);
+                    }else{
+                        console.log("Message sent: " + response.message);
+                    }
+                });
+
+                res.status(200).json({data, message : "success"});
+            }
+
+            else if(status === "declined") {
+
+                mailOptions={
+                    to: email,
+                    subject: "ABSTRACT UPDATE FOR" +name+"",
+                    html: "Hello <br> We regret to inform you that your abstract was rejected " +
+                        "for the "+name+ ". We hope to have you next time!<br> <a href=" +link+">Click here to login</a>"
+                }
+                console.log(mailOptions);
+                transporter.sendMail(mailOptions, function(error, response){
+                    if(error){
+                        console.log(error);
+                    }else{
+                        console.log("Message sent: " + response.message);
+                    }
+                });
+
+                res.status(200).json({data, message : "success"});
+            }
+            console.log(status);
+            res.status(200).send({data, status: "success"})
+
+        }
+
+    }).catch(err => {
+        console.log(err.message);
+        res.status(500).send(err.message);
     })
 }

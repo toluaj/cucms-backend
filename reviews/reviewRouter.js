@@ -4,6 +4,9 @@ const  express = 	require("express");
        auth1 = require('../middle');
 
 router.route('/')
-.post(auth1.decodeToken, controller.makeReview);
+.post(auth1.decodeToken, controller.makeReview)
+
+router.route('/get')
+    .post(controller.getAbstracts);
 
 module.exports = router;

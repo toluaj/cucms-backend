@@ -2,6 +2,8 @@ var db = require('../db');
     expressjwt = require("express-jwt");
     checkToken  = expressjwt({secret : "tolukey", algorithms: ['HS256']});
 
+const { QueryTypes } = require('sequelize');
+
 exports.decodeToken = (req, res, next) => {
     checkToken(req, res, next);
 }
@@ -59,13 +61,6 @@ exports.getConferences = (req, res) => {
 
         res.status(200).send({data, status: "success"})
 
-        // db.conference.findAll({
-        //     where: {conference_id: data.conference_id}
-        // }).then(data => {
-        //     if(!data) {res.status(403).send({message: "could not find any user"})}
-        //
-        //     res.status(200).send({data, status: "success"})
-        // })
     }).catch(err => {
         console.log(err.message);
         res.status(500).send(err.message);
