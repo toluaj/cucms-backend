@@ -1,5 +1,4 @@
 var db = require('../db');
-const program = require('../program/program');
     expressjwt = require("express-jwt");
     checkToken  = expressjwt({secret : "tolukey", algorithms: ['HS256']});
 

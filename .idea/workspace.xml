@@ -20,12 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c80cf3c2-7c8c-431c-b621-619e8d050e66" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/payment/payment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment/paymentController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment/paymentRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parties/partiesController.js" beforeDir="false" afterPath="$PROJECT_DIR$/parties/partiesController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/activity/activity.js" beforeDir="false" afterPath="$PROJECT_DIR$/activity/activity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/activity/activityController.js" beforeDir="false" afterPath="$PROJECT_DIR$/activity/activityController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/program.js" beforeDir="false" afterPath="$PROJECT_DIR$/program/program.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reviews/reviewController.js" beforeDir="false" afterPath="$PROJECT_DIR$/reviews/reviewController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reviews/reviewRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/reviews/reviewRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/uploadAbsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/uploads/uploadAbsController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/uploadAbsRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/uploads/uploadAbsRouter.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +54,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../project" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -68,7 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1596222216596</updated>
       <workItem from="1596222218168" duration="25829000" />
-      <workItem from="1596385339312" duration="31261000" />
+      <workItem from="1596385339312" duration="45352000" />
     </task>
     <servers />
   </component>
@@ -88,6 +92,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1596612155681">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1596612155681" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1596320328233">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

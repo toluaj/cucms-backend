@@ -36,7 +36,7 @@ exports.getParties = (req, res) => {
 exports.getAbstracts = (req, res) => {
     const {conference_id} = req.body;
     db.review.findAll({
-        where: {conference_id: conference_id, status: "pending"},
+        where: {conference_id: conference_id},
         include: [{
             model: db.abstract,
             attributes: ['id', 'abstract_text', 'path', 'firstName', 'lastName', 'status', 'email'],

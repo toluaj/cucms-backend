@@ -37,6 +37,7 @@ db.parties = require("./parties/parties")(sequelize, Sequelize);
 db.paper = require("./paper/paper")(sequelize, Sequelize);
 db.request = require("./requests/request")(sequelize, Sequelize);
 db.assignments = require("./assignments/assignments")(sequelize, Sequelize);
+db.payment = require("./payment/payment")(sequelize, Sequelize);
 
 // db.conference.hasMany(db.user, {onDelete: "cascade"})
 // db.user.belongsToMany(db.conference, { through: "user_conference", onDelete: "cascade"})
@@ -46,9 +47,6 @@ db.abstract.belongsTo(db.user, { onDelete: "cascade" })
 
 db.conference.hasMany(db.abstract, { onDelete: "cascade"})
 db.abstract.belongsTo(db.conference, {onDelete: "cascade"})
-
-// db.conference.hasMany(db.program, {onDelete: "cascade"})
-// db.program.belongsToMany(db.conference, {through: "program_conference", onDelete: "cascade"})
 
 // db.program.hasMany(db.activity, {onDelete: "cascade"})
 db.activity.belongsTo(db.program, {onDelete: "cascade"})
@@ -62,11 +60,10 @@ db.paper.belongsTo(db.conference, {onDelete: "cascade"})
 db.user.hasOne(db.paper, { onDelete: "cascade" })
 db.paper.belongsTo(db.user, { onDelete: "cascade" })
 
+
 // db.user.hasMany(db.request, {onDelete: "cascade"})
 // db.request.belongsToMany(db.user, { through: "user_request", onDelete: "cascade"})
 
-// db.conference.hasMany(db.request, {onDelete: "cascade"})
-// db.request.belongsToMany(db.conference, {onDelete: "cascade"})
 
 // db.sequelize.sync({force: true}); 
 

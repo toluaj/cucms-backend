@@ -15,7 +15,8 @@ abstractRouter = require('./uploads/uploadAbsRouter');
 partiesRouter = require('./parties/partiesRouter');
 requestRouter = require('./requests/requestRouter');
 reviewRouter = require('./reviews/reviewRouter');
-assignRouter = require('./assignments/assRouter')
+assignRouter = require('./assignments/assRouter');
+paymentRouter = require('./payment/paymentRouter');
 
 api.use('/users', userRouter);
 api.use('/conference', conferenceRouter);
@@ -25,6 +26,7 @@ api.use('/abstract', abstractRouter);
 api.use('/parties', partiesRouter);
 api.use('/request', requestRouter);
 api.use('/review', reviewRouter);
-api.use('/assign', assignRouter)
+api.use('/assign', assignRouter);
+api.use('/pay', paymentRouter);
 
 module.exports = api;

@@ -6,16 +6,15 @@ module.exports = (sequelize, DataTypes) => {
     const program = sequelize.define('program', {
 
         id: {
-            type: DataTypes.UUID,
+            type: DataTypes.INTEGER,
             primaryKey: true,
-            defaultValue: DataTypes.UUIDV4,
-            allowNull: false
+            autoIncrement: true
         },
         program: {
             type: DataTypes.STRING,
-            defaultValue: 'Program',
-            allowNull: false,
-            required: true
+            defaultValue: 'Session',
+            allowNull: true,
+            required: false
         },
         conference_id: {
             type: DataTypes.INTEGER,
@@ -25,6 +24,11 @@ module.exports = (sequelize, DataTypes) => {
         spaces_available: {
             type: DataTypes.STRING,
             required: true, 
+            allowNull: false
+        },
+        amount: {
+            type: DataTypes.DECIMAL,
+            required: true,
             allowNull: false
         }
     })
