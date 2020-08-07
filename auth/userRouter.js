@@ -30,4 +30,10 @@ const  express = 	require("express");
     router.route('/edit')
     .put(controller.decodeToken, controller.editUser);
 
+    router.route('/forgotPassword')
+    .post(controller.forgotPassword)
+
+    router.route('/reset')
+    .post(controller.findToken, controller.change_password)
+
 module.exports = router;

@@ -7,39 +7,21 @@ var db = require("../db");
     checkToken  = expressjwt({secret : "tolukey", algorithms: ['HS256']});
 
 const Op = db.Sequelize.Op;
+const crypto = require('crypto');
 
 var rand,mailOptions,link;
 rand=Math.floor((Math.random() * 1000000) + 54);
 console.log(mailOptions);
 var host = "localhost:8080";
 var url = "http://localhost:3000/login"
-const sendMail = (email) => {
-    console.log(email);
-    var transporter = nodemailer.createTransport({
+
+var transporter = nodemailer.createTransport({
     service: "Gmail",
     auth: {
         user: 'tolulope.ajia@stu.cu.edu.ng',
         pass: 'computer123'
     }
 });
-    host=req.get('host');
-    link="http://"+req.get('host')+"/api/cu/users/verify/"+rand;
-    console.log(host);
-    console.log(link);
-    const mailOptions={
-        to: email,
-        subject: "Please confirm your Email account",
-        html: "Hello <br> Please Click on the link to verify your email.<br><a href="+link+">Click here to verify</a>"
-    }
-    console.log(mailOptions);
-    transporter.sendMail(mailOptions, function(error, response){
-     if(error){
-            console.log(error);
-     }else{
-            console.log("Message sent: " + response.message);
-        }
-    });
-};
 
 exports.verify = (req, res) => {
     console.log(req.protocol+"://"+req.get('host'))
@@ -138,14 +120,6 @@ exports.create = async (req, res) => {
 		}
 
         else {  
-            // sendMail(data.email);
-            var transporter = nodemailer.createTransport({
-            service: "Gmail",
-            auth: {
-                user: 'tolulope.ajia@stu.cu.edu.ng',
-                pass: 'computer123'
-            }
-            });
             host=req.get('host');
             link="http://"+req.get('host')+"/api/cu/users/verify/"+rand;
             console.log(host);
@@ -355,4 +329,102 @@ exports.editUser = (req, res) => {
     console.log(err.message);
     res.status(500).send({message: err.message})
     })
+}
+
+const mailOption1 = (user, token) => {
+    const url = "http://localhost:3000/reset/"
+    return mailOptions = {
+        from: 'CUCMS <tolulope.ajia@stu.cu.edu.ng>',
+        to   : user.email,
+        subject : 'PASSWORD RESET',
+        html : '<p>Hello,<br/> You requested a password reset on the CUCMS platform. <br/>' +
+            'If this was you, <a href= '+url+token+'>please click</a><br/> If not, ignore this.'
+    };
+}
+
+const sendMail = (user, token) => {
+
+    mailOption1(user, token);
+    transporter.sendMail(mailOptions, function(err, info) {
+        if(err){ return {message : err, status : "failed"}};
+        console.log(info);
+    })
+}
+
+const updateUser = ((user, token) => {
+
+    db.user.update({
+        activeToken : token,
+        activeExpires : Date.now() + 86400000,
+        returning: true,
+    }, {where: {id : user.id}})
+        .then(data => sendMail(user, token))
+        .catch(err => res.send(err));
+});
+
+exports.forgotPassword = (req, res) => {
+
+    db.user.findOne({
+        where: {
+            email : req.body.email
+        }
+    })
+        .then(user => {
+            if(!user){ return res.status(403).send({message : "user not found", status : "failed"})};
+
+            crypto.randomBytes(20, (err, buffer) => {
+                const token = buffer.toString('hex');
+                updateUser(user, token);
+            });
+            res.send({message : "Please check your email for your password reset link"});
+        })
+        .catch(err => res.send(err));
+
+};
+
+exports.findToken = (req, res, next) => {
+    db.user.findOne({
+        where: {
+            activeToken : req.body.token,
+            activeExpires : {
+                [Op.gt]: Date.now()
+            }
+        }
+    })
+        .then(data => {
+            if(!data){ res.send({message : "link has expired, please reset", status : "failed"})};
+
+            req.foundUser = data;
+            next();
+        })
+        .catch(err => res.send(err));
+}
+
+exports.change_password = (req, res, next) => {
+
+    const {password, confirm_password} = req.body;
+    if(password !== confirm_password){
+        res.send({message : "password does not match", status : "failed"});
+    };
+
+        db.user.update({
+            password : bcrypt.hashSync(password, 8),
+            activeToken : null,
+            activeExpires : null
+
+        },{
+            where: {activeToken : req.body.token,
+                activeExpires : {
+                    [Op.gt]: Date.now()
+                }},
+            returning : true,
+            plain : true
+        })
+            .then(data => {
+                if(!data){ next(res.send({message : "password reset failed", status : "failed"}))};
+
+                res.send({message : "Password reset successful, please login"});
+            })
+            .catch(err => res.send({message : err, status : "failed"}));
+
 }

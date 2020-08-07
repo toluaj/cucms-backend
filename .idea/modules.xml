@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../tizeti_cms/api/v1/forgotPassword/.idea/forgotPassword.iml" filepath="$PROJECT_DIR$/../../tizeti_cms/api/v1/forgotPassword/.idea/forgotPassword.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/project-server.iml" filepath="$PROJECT_DIR$/.idea/project-server.iml" />
     </modules>
   </component>

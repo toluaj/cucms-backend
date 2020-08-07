@@ -179,6 +179,7 @@ exports.paperCall = async (req, res) => {
                     console.log(error);
                 }
                 else {
+                    res.status(200).send({mailOptions});
                     console.log("Message sent: " + response);
                 }
             })

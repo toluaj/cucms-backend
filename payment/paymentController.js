@@ -30,3 +30,8 @@ exports.confirmPayment = (req, res) => {
         console.log(err.message)
     })
 }
+
+// exports.updateSpaces = (req, res) => {
+//
+//     db.program.update({spaces_available}, {})
+// }
