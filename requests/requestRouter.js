@@ -7,8 +7,8 @@ const  express = 	require("express");
 router.route('/')
 .post(auth1.decodeToken, controller.makeRequest)
 
-router.route('/')
-.get(auth1.decodeToken, controller.getUserRequest);
+router.route('/request')
+.post(auth1.decodeToken, controller.getUserRequest);
 
 router.route('/reply')
 .post(auth1.decodeToken, controller.replyRequest);

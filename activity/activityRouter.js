@@ -8,6 +8,6 @@ router.route('/')
 .get(controller.decodeToken, controller.getActivity)
 
 router.route('/program/:id')
-.get(auth.decodeToken, controller.getProgram);
+.get(controller.getProgram);
 
 module.exports = router;

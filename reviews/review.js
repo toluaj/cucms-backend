@@ -34,7 +34,12 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
             required: true
-        }
+        },
+        // released: {
+        //     type: DataTypes.ENUM,
+        //     values: ["true","false"],
+        //     defaultValue: "false"
+        // }
     }, {
         underscored: true
     })

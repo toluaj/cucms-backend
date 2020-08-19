@@ -33,7 +33,7 @@ exports.createConference = async (req, res) => {
         start_date,
         end_date,
         chair ,
-        // sessions
+        deadline
     } = req.body;
 
 
@@ -55,6 +55,9 @@ exports.createConference = async (req, res) => {
     if(!end_date){
         res.send({status : "failed", message : "Please enter end date"});
     }
+    if(!deadline){
+        res.send({status : "failed", message : "Please enter end date"});
+    }
 
     await db.conference.create({
         name,
@@ -64,7 +67,7 @@ exports.createConference = async (req, res) => {
         start_date,
         end_date,
         chair,
-        // sessions
+        deadline
 
     }).then((data) => {
 
@@ -114,6 +117,24 @@ exports.getConference = (req, res) => {
     })
     .catch(err => {
         res.send(err);
+    })
+}
+
+exports.abstractConferences = (req, res) => {
+    db.conference.findAll({
+        where: {deadline: {
+                [Op.gt]: Date.now()
+            }}
+    }).then(data => {
+        if(!data) {
+            res.status(403).send({
+                status: "failed",
+                message: "no conference available"
+            })
+        };
+
+        res.send({message: 'gotten', data})
+
     })
 }
 

@@ -22,11 +22,11 @@ module.exports = (sequelize, DataTypes) => {
             required: true
         },
 
-        user_id: {
-            type: DataTypes.UUID,
-            allowNull: false,
-            required: true
-        },
+        // user_id: {
+        //     type: DataTypes.UUID,
+        //     allowNull: false,
+        //     required: true
+        // },
 
         reply: {
             type: DataTypes.ENUM,

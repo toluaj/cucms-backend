@@ -18,4 +18,7 @@ router.route('/conference/:id')
 router.route('/papercall')
 .post(controller.decodeToken, controller.paperCall);
 
+router.route('/sub')
+    .get(controller.abstractConferences)
+
 module.exports = router;

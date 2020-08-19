@@ -30,6 +30,7 @@ exports.verify = (req, res) => {
     console.log(host);
     console.log(rand);
     console.log(req.query.id);
+    console.log(mailOptions);
     if((req.protocol+"://"+req.get('host'))==("http://"+host)) 
     {
         console.log("Domain is matched. Information is from Authentic email");

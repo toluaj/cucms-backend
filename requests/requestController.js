@@ -81,7 +81,7 @@ exports.replyRequest = async (req, res, next) => {
               db.request.update({
                   reply: reply
               }, {
-                  where: {user_id: user_id, conference_id: conference_id}
+                  where: {email: email, conference_id: conference_id}
               })
 
               db.parties.create({
@@ -109,7 +109,7 @@ exports.replyRequest = async (req, res, next) => {
         db.request.update({
             reply: reply
         }, {
-          where: {user_id: user_id, conference_id: conference_id}
+          where: {email: email, conference_id: conference_id}
       })
       .then(data => {
             if(!data){ res.send({message : "request accepted", status : "failed"})};
@@ -143,7 +143,7 @@ exports.replyRequest2 = (req, res, next) => {
                 db.request.update({
                     reply: reply
                 }, {
-                    where: {user_id: user_id, conference_id: conference_id}
+                    where: {email: email, conference_id: conference_id}
                 })
 
                 db.parties.create({
@@ -171,7 +171,7 @@ exports.replyRequest2 = (req, res, next) => {
         db.request.update({
             reply: reply
         }, {
-            where: {user_id: user_id, conference_id: conference_id}
+            where: {email: email, conference_id: conference_id}
         })
             .then(data => {
                 if(!data){ res.send({message : "request accepted", status : "failed"})};
@@ -257,13 +257,13 @@ const updateUser2 = ((email, token, name) => {
 
 exports.makeRequest = (req, res, next) => {
 
-    const {email, conference_name, user_id, conference_id, type} = req.body;
+    const {email, conference_name, conference_id, type} = req.body;
     console.log(req.user);
     var requester_id = req.user.id;
     var obj = {reply: "pending",
                conference_id,
                requester_id: requester_id,
-               user_id, email, conference_name,
+               email, conference_name,
                 type
             }
     db.request.create(
@@ -289,7 +289,7 @@ exports.makeRequest = (req, res, next) => {
                 console.log(host);
                 console.log(link);
                 console.log(url);
-                if(type === "reviewer") {
+                if(type === "Reviewer") {
                     mailOptions={
                         to: email,
                         subject: "Reviwer Request",
@@ -297,7 +297,7 @@ exports.makeRequest = (req, res, next) => {
                         " here in Covenant University<br> <a href=" +link+">Click here to login</a>"
                     }
                 }
-                else if (type === "chair") {
+                else if (type === "Chair") {
                     mailOptions={
                         to: email,
                         subject: "Program Chair Request",
@@ -356,10 +356,9 @@ exports.makeChairRequest = (req, res, next) => {
 
 exports.getUserRequest = (req, res) => {
 
-    // const {user_id} = req.body;
     console.log(req.user.id);
     db.request.findAll({
-        where: {user_id: req.user.id}
+        where: {email: req.body.email}
     }).then(data =>{
         
         if(!data){return res.send({message: "you do not have any requests at this time", status: "failed"})}

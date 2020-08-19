@@ -65,7 +65,7 @@ db.paper.belongsTo(db.user, { onDelete: "cascade" })
 // db.request.belongsToMany(db.user, { through: "user_request", onDelete: "cascade"})
 
 
-// db.sequelize.sync({force: true}); 
+// db.sequelize.sync({force: true});
 
 
 module.exports = db;
