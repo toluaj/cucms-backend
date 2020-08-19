@@ -4,7 +4,6 @@ exports.submitPaper = async (req, res) => {
 
     const {
         title,
-        paper,
         conference_id
     } = req.body;
 
@@ -14,7 +13,7 @@ exports.submitPaper = async (req, res) => {
 
     var paperfile = req.files.paper;
 
-    await db.abstract.create({
+    await db.paper.create({
         title,
         paper:paperfile.name,
         user_id: req.user.id,
@@ -31,7 +30,7 @@ exports.submitPaper = async (req, res) => {
 
         }
 
-        abstractfile.mv(__dirname+ '/papers/' + abstractfile.name,
+        paperfile.mv(__dirname+ '/papers/' + paperfile.name,
             function (error)  {
                 if(error) {
                     console.log("couldn't upload game file");
@@ -56,6 +55,7 @@ exports.submitPaper = async (req, res) => {
     })
         .catch (err => {
             res.status(500).send(err.message);
+            console.log(err.message);
         })
 
 }
