@@ -4,7 +4,8 @@ const  express = 	require("express");
        auth1 = require('../middle');
 
 router.route('/')
-.post(auth1.decodeToken, controller.makeReview)
+    .post(auth1.decodeToken, controller.makeReview)
+    .get(auth1.decodeToken, controller.getReview);
 
 router.route('/get')
     .post(controller.getAbstracts);

@@ -23,12 +23,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c80cf3c2-7c8c-431c-b621-619e8d050e66" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/contact/contact.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/contact/contactController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/contact/contactRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/auth/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paper/paper.js" beforeDir="false" afterPath="$PROJECT_DIR$/paper/paper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paper/paperController.js" beforeDir="false" afterPath="$PROJECT_DIR$/paper/paperController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/uploadAbstract.js" beforeDir="false" afterPath="$PROJECT_DIR$/uploads/uploadAbstract.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/assController.js" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/assController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/auth/userController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parties/partiesController.js" beforeDir="false" afterPath="$PROJECT_DIR$/parties/partiesController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parties/partiesRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/parties/partiesRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reviews/reviewController.js" beforeDir="false" afterPath="$PROJECT_DIR$/reviews/reviewController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reviews/reviewRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/reviews/reviewRouter.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +59,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../tizeti_cms/api/v1/forgotPassword" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../project" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -73,7 +79,9 @@
       <workItem from="1596222218168" duration="25829000" />
       <workItem from="1596385339312" duration="59659000" />
       <workItem from="1597232678533" duration="2300000" />
-      <workItem from="1597770143144" duration="13110000" />
+      <workItem from="1597770143144" duration="14094000" />
+      <workItem from="1598894991455" duration="10677000" />
+      <workItem from="1602191341340" duration="3888000" />
     </task>
     <servers />
   </component>
@@ -93,14 +101,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1596807922133">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1602191429771">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1596807922133" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1597799661095">
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1602191429771" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1602199644618">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597799661095" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1602199644618" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -108,7 +116,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/requests/requestController.js</url>
           <line>67</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

@@ -1,5 +1,16 @@
 var db = require('../db');
+    nodemailer = require('nodemailer');
 
+
+var mailOptions;
+
+var transporter = nodemailer.createTransport({
+    service: "Gmail",
+    auth: {
+        user: 'tolulope.ajia@stu.cu.edu.ng',
+        pass: 'computer123'
+    }
+});
 
 exports.assignAbstract = (req, res) => {
 
@@ -7,7 +18,11 @@ exports.assignAbstract = (req, res) => {
     ).then(data => {
         if(!data) {res.send(403).status({message: "could not assign abstract", status: 'failed'})}
 
+        else {
+
+        }
         res.status(200).send({status: "success", data})
+
     })
         .catch(err => {
             console.log(err.message);

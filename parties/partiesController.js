@@ -1,7 +1,7 @@
 var db = require('../db');
     expressjwt = require("express-jwt");
     checkToken  = expressjwt({secret : "tolukey", algorithms: ['HS256']});
-
+const Op = db.Sequelize.Op;
 const { QueryTypes } = require('sequelize');
 
 exports.decodeToken = (req, res, next) => {
@@ -55,7 +55,9 @@ exports.getReviewers = (req, res) => {
 exports.getConferences = (req, res) => {
 
     db.parties.findAll({
-        where: {user_id: req.user.id, role: "chair"}
+        where: {user_id: req.user.id, role: {
+            [Op.or]: ["chair", "admin"]
+            }}
     }).then(data => {
         if(!data) {res.status(403).send({message: "could not find any user"})}
 
@@ -64,5 +66,20 @@ exports.getConferences = (req, res) => {
     }).catch(err => {
         console.log(err.message);
         res.status(500).send(err.message);
+    })
+}
+
+exports.getParties = (req, res) => {
+
+    db.parties.findAll({
+        where: {conference_id: req.body.conference_id}
+
+    }).then(data => {
+        if(!data) {return res.status(403).send({message: "no one has registered", status: "failed" })}
+
+        res.status(200).send({message: "success", data});
+
+    }).catch(err => {
+        return res.status(500).send({message: err.message, status: "failed" })
     })
 }

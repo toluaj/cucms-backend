@@ -61,3 +61,20 @@ exports.getAbstracts = (req, res) => {
 
 }
 
+exports.getReview = (req, res) => {
+
+    db.review.findOne({
+
+        where: {user_id: req.user.id}
+
+    }).then(data => {
+
+        if(!data) {return res.status(403).send({message: "could not find review", status:"failed"})}
+
+        res.status(200).send({status: "success", data})
+
+    }).catch(err => {
+        console.log(err.message);
+        res.status(500).send({message: err.message, status: "failed"})
+    })
+}

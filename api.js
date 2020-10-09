@@ -18,6 +18,7 @@ reviewRouter = require('./reviews/reviewRouter');
 assignRouter = require('./assignments/assRouter');
 paymentRouter = require('./payment/paymentRouter');
 paperRouter = require('./paper/paperRouter');
+contactRouter = require('./contact/contactRouter');
 
 api.use('/users', userRouter);
 api.use('/conference', conferenceRouter);
@@ -30,5 +31,6 @@ api.use('/review', reviewRouter);
 api.use('/assign', assignRouter);
 api.use('/pay', paymentRouter);
 api.use('/paper', paperRouter);
+api.use('/contact', contactRouter);
 
 module.exports = api;

@@ -128,7 +128,7 @@ exports.create = async (req, res) => {
             mailOptions={
                 to: email,
                 subject: "Please confirm your Email account",
-                html: "Hello <br> Please Click on the link to verify your email.<br><a href="+link+">Click here to verify</a>"
+                html: "Hello <br><a href="+link+">Click this link to verify your account</a>"
             }
             console.log(mailOptions);
             transporter.sendMail(mailOptions, function(error, response){

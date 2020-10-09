@@ -10,6 +10,7 @@ router.route('/:id')
     .get(controller.getReviewers)
 
 router.route('/')
-    .get(auth.decodeToken, controller.getConferences);
+    .get(auth.decodeToken, controller.getConferences)
+    .post(auth.decodeToken, controller.getParties)
 
 module.exports = router;
